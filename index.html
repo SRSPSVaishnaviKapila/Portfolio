@@ -841,30 +841,51 @@
   </section>
 
   <!-- INTERNSHIPS -->
-  <section id="internships">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Internships</p>
-        <h2>Professional <em>Experience</em></h2>
-        <div class="divider"></div>
-      </div>
-      <div class="intern-card reveal">
-        <div class="intern-header">
-          <div>
-            <div class="intern-title">Software Development Intern</div>
-            <div class="intern-company">Infosys Virtual Internship 6.0</div>
-          </div>
-          <span class="intern-date">Nov 2025 – Jan 2026</span>
-        </div>
-        <ul class="intern-list">
-          <li>Built a full-stack application called <strong>BragBoard</strong> using React (frontend) and Python (backend).</li>
-          <li>Developed and integrated REST APIs for seamless client-server communication.</li>
-          <li>Implemented complete CRUD functionalities — Create, Read, Update, Delete — across the application stack.</li>
-        </ul>
-      </div>
+<section id="internships">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Internships</p>
+      <h2>Professional <em>Experience</em></h2>
+      <div class="divider"></div>
     </div>
-  </section>
 
+    <!-- Clickable Internship Card -->
+    <div class="intern-card reveal" onclick="openModal()">
+      <div class="intern-header">
+        <div>
+          <div class="intern-title">Software Development Intern</div>
+          <div class="intern-company">Infosys Virtual Internship 6.0</div>
+
+          <div style="font-size:0.75rem;
+                      color:var(--accent3);
+                      margin-top:0.5rem;
+                      font-weight:500;">
+            📄 Click to view certificate
+          </div>
+        </div>
+
+        <span class="intern-date">Nov 2025 – Jan 2026</span>
+      </div>
+
+      <ul class="intern-list">
+        <li>Built a full-stack application called <strong>BragBoard</strong> using React (frontend) and Python (backend).</li>
+        <li>Developed and integrated REST APIs for seamless client-server communication.</li>
+        <li>Implemented complete CRUD functionalities — Create, Read, Update, Delete — across the application stack.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Certificate Modal -->
+<div id="certificateModal" class="modal">
+  <span class="close-btn" onclick="closeModal()">&times;</span>
+
+  <img
+    src="images/infosys-certificate.jpg"
+    alt="Infosys Internship Certificate"
+    class="modal-content"
+  >
+</div>
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="container">
