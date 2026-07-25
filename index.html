@@ -1060,12 +1060,34 @@ onclick="openCertificate('images/googlecloud.jpg')">
       });
     });
     function openCertificate(image){
+      const modalImage = document.getElementById("certificateImage");
+      const modal = document.getElementById("certificateModal");
+      const fallback = "images/placeholder-certificate.svg";
+      const candidates = [image];
 
-    document.getElementById("certificateImage").src=image;
+      if (/\.(jpg|jpeg|png|svg)$/i.test(image)) {
+        candidates.push(`${image}.png`);
+      } else {
+        candidates.push(`${image}.png`);
+      }
 
-    document.getElementById("certificateModal").style.display="flex";
+      let currentIndex = 0;
+      const tryLoad = () => {
+        const nextImage = candidates[currentIndex];
+        modalImage.src = nextImage;
+        modalImage.onerror = () => {
+          currentIndex += 1;
+          if (currentIndex < candidates.length) {
+            tryLoad();
+          } else {
+            modalImage.src = fallback;
+          }
+        };
+      };
 
-}
+      tryLoad();
+      modal.style.display = "flex";
+    }
 
 function closeCertificate(){
 
@@ -1090,7 +1112,8 @@ window.onclick=function(e){
     <span class="close" onclick="closeCertificate()">&times;</span>
 
     <img id="certificateImage"
-         src=""
+         src="images/placeholder-certificate.svg"
+         alt="Certificate preview"
          draggable="false"
          oncontextmenu="return false;">
 
