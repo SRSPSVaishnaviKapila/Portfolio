@@ -672,6 +672,62 @@
   background: var(--accent2);
   transform: translateY(-2px);
 }
+    /* ===== Certificate Button ===== */
+
+.certificate-btn{
+    margin-top:20px;
+    padding:12px 22px;
+    background:var(--accent);
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+.certificate-btn:hover{
+    background:var(--accent2);
+}
+
+/* Clickable Certificate Cards */
+
+.cert-card{
+    cursor:pointer;
+}
+
+/* Modal */
+
+.certificate-modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    justify-content:center;
+    align-items:center;
+}
+
+.certificate-modal img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+    box-shadow:0 10px 40px rgba(0,0,0,.5);
+    -webkit-user-drag:none;
+    user-select:none;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+}
   </style>
 </head>
 <body>
@@ -844,40 +900,36 @@
 
   <!-- INTERNSHIPS -->
   <section id="internships">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Internships</p>
-        <h2>Professional <em>Experience</em></h2>
-        <div class="divider"></div>
-      </div>
-      <div class="intern-card reveal">
-        <div class="intern-header">
-          <div>
-            <div class="intern-title">Software Development Intern</div>
-            <div class="intern-company">Infosys Virtual Internship 6.0</div>
-          </div>
-          <span class="intern-date">Nov 2025 – Jan 2026</span>
-        </div>
-        <ul class="intern-list">
-          <li>Built a full-stack application called <strong>BragBoard</strong> using React (frontend) and Python (backend).</li>
-          <li>Developed and integrated REST APIs for seamless client-server communication.</li>
-          <li>Implemented complete CRUD functionalities — Create, Read, Update, Delete — across the application stack.</li>
-        </ul>
-      </div>
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Internships</p>
+      <h2>Professional <em>Experience</em></h2>
+      <div class="divider"></div>
     </div>
-  </section>
 
+    <div class="intern-card reveal">
+      <div class="intern-header">
+        <div>
+          <div class="intern-title">Software Development Intern</div>
+          <div class="intern-company">Infosys Virtual Internship 6.0</div>
+        </div>
+        <span class="intern-date">Nov 2025 – Jan 2026</span>
+      </div>
 
-<!-- Certificate Modal -->
-<div id="certificateModal" class="modal">
-  <span class="close-btn" onclick="closeModal()">&times;</span>
+      <ul class="intern-list">
+        <li>Built a full-stack application called <strong>BragBoard</strong> using React (frontend) and Python (backend).</li>
+        <li>Developed and integrated REST APIs for seamless client-server communication.</li>
+        <li>Implemented complete CRUD functionalities — Create, Read, Update, Delete — across the application stack.</li>
+      </ul>
 
-  <img
-    src="images/infosys-certificate.jpg"
-    alt="Infosys Internship Certificate"
-    class="modal-content"
-  >
-</div>
+      <button class="certificate-btn"
+onclick="openCertificate('images/infosys.jpg')">
+    View Certificate
+</button>
+
+    </div>
+  </div>
+</section>
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="container">
@@ -887,42 +939,48 @@
         <div class="divider"></div>
       </div>
       <div class="certs-grid">
-        <div class="cert-card reveal">
+        <div class="cert-card reveal"
+          onclick="openCertificate('images/c-language.jpg')">
           <div class="cert-icon">C</div>
           <div>
             <div class="cert-name">C Language</div>
             <div class="cert-issuer">BDPS</div>
           </div>
         </div>
-        <div class="cert-card reveal">
+        <div class="cert-card reveal"
+onclick="openCertificate('images/python.jpg')">
           <div class="cert-icon">Py</div>
           <div>
             <div class="cert-name">Python Programming</div>
             <div class="cert-issuer">BDPS</div>
           </div>
         </div>
-        <div class="cert-card reveal">
+        <div class="cert-card reveal"
+onclick="openCertificate('images/java.jpg')">
           <div class="cert-icon">Jv</div>
           <div>
             <div class="cert-name">Java</div>
             <div class="cert-issuer">KITS</div>
           </div>
         </div>
-        <div class="cert-card reveal">
+        <div class="cert-card reveal"
+onclick="openCertificate('images/nptel.jpg')">
           <div class="cert-icon">PM</div>
           <div>
             <div class="cert-name">Software Project Management</div>
             <div class="cert-issuer">NPTEL</div>
           </div>
         </div>
-        <div class="cert-card reveal">
+        <div class="cert-card reveal"
+onclick="openCertificate('images/oracle.jpg')">
           <div class="cert-icon">AI</div>
           <div>
             <div class="cert-name">Oracle Cloud Infrastructure AI</div>
             <div class="cert-issuer">Oracle</div>
           </div>
         </div>
-        <div class="cert-card reveal">
+        <div class="cert-card reveal"
+onclick="openCertificate('images/googlecloud.jpg')">
           <div class="cert-icon">DA</div>
           <div>
             <div class="cert-name">Cloud Career Launchpad — Data Analytics</div>
@@ -1001,6 +1059,41 @@
           ? 'var(--accent)' : '';
       });
     });
+    function openCertificate(image){
+
+    document.getElementById("certificateImage").src=image;
+
+    document.getElementById("certificateModal").style.display="flex";
+
+}
+
+function closeCertificate(){
+
+    document.getElementById("certificateModal").style.display="none";
+
+}
+
+window.onclick=function(e){
+
+    const modal=document.getElementById("certificateModal");
+
+    if(e.target==modal){
+
+        closeCertificate();
+
+    }
+
+}
   </script>
+  <div id="certificateModal" class="certificate-modal">
+
+    <span class="close" onclick="closeCertificate()">&times;</span>
+
+    <img id="certificateImage"
+         src=""
+         draggable="false"
+         oncontextmenu="return false;">
+
+</div>
 </body>
 </html>
