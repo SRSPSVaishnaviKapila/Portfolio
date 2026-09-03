@@ -728,6 +728,139 @@
     font-size:45px;
     cursor:pointer;
 }
+    /* ================================
+   INTERNSHIPS ONLY
+================================ */
+
+#internships .intern-card {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto 1.5rem auto;
+  padding: 2rem 2.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#internships .intern-card:hover {
+  border-color: var(--accent3);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+
+/* Internship Header */
+#internships .intern-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  gap: 2rem;
+}
+
+
+/* Job Title */
+#internships .intern-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.3;
+}
+
+
+/* Company */
+#internships .intern-company {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent2);
+}
+
+
+/* Date */
+#internships .intern-date {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 0.25rem;
+}
+
+
+/* Internship List */
+#internships .intern-list {
+  margin: 0 0 1.5rem 1.2rem;
+  padding: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+#internships .intern-list li {
+  margin-bottom: 0.4rem;
+  padding-left: 0.3rem;
+}
+
+#internships .intern-list li:last-child {
+  margin-bottom: 0;
+}
+
+#internships .intern-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+
+/* Certificate Button */
+#internships .certificate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  background: var(--highlight);
+  color: var(--accent2);
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#internships .certificate-btn:hover {
+  background: var(--accent2);
+  color: #fff;
+  border-color: var(--accent2);
+}
+
+
+/* Mobile */
+@media (max-width: 650px) {
+
+  #internships .intern-card {
+    padding: 1.5rem;
+  }
+
+  #internships .intern-header {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  #internships .intern-date {
+    white-space: normal;
+  }
+
+}
   </style>
 </head>
 <body>
@@ -902,16 +1035,15 @@
 <section id="internships">
   <div class="container">
 
-    <!-- Section Header -->
     <div class="section-header reveal">
       <p class="section-label">Internships</p>
       <h2>Professional <em>Experience</em></h2>
       <div class="divider"></div>
     </div>
 
-
-    <!-- BLACKBUCKS INTERNSHIP -->
+    <!-- BLACKBUCKS -->
     <div class="intern-card reveal">
+
       <div class="intern-header">
         <div>
           <div class="intern-title">AI & Machine Learning Intern</div>
@@ -929,19 +1061,17 @@
 
         <li>
           Gained hands-on experience with
-          <strong>Python programming, Machine Learning concepts,
-          and AI fundamentals</strong>.
+          <strong>Python, Machine Learning concepts, and AI fundamentals</strong>.
         </li>
 
         <li>
-          Developed a <strong>Brain Tumor Detection</strong> project
-          using deep learning techniques to classify brain MRI images.
+          Developed a <strong>Brain Tumor Detection</strong> project using
+          deep learning techniques for brain MRI image classification.
         </li>
 
         <li>
-          Applied concepts including
-          <strong>data preprocessing, model training, evaluation,
-          and image classification</strong>.
+          Applied <strong>data preprocessing, model training,
+          evaluation, and image classification</strong> techniques.
         </li>
       </ul>
 
@@ -949,11 +1079,13 @@
               onclick="openCertificate('images/blackbucks.png')">
         View Certificate
       </button>
+
     </div>
 
 
-    <!-- INFOSYS INTERNSHIP -->
+    <!-- INFOSYS -->
     <div class="intern-card reveal">
+
       <div class="intern-header">
         <div>
           <div class="intern-title">Software Development Intern</div>
@@ -965,14 +1097,13 @@
 
       <ul class="intern-list">
         <li>
-          Built a full-stack application called
-          <strong>BragBoard</strong> using React (frontend)
-          and Python (backend).
+          Built a full-stack application called <strong>BragBoard</strong>
+          using React (frontend) and Python (backend).
         </li>
 
         <li>
-          Developed and integrated <strong>REST APIs</strong>
-          for seamless client-server communication.
+          Developed and integrated <strong>REST APIs</strong> for seamless
+          client-server communication.
         </li>
 
         <li>
@@ -985,6 +1116,7 @@
               onclick="openCertificate('images/infosys.jpg')">
         View Certificate
       </button>
+
     </div>
 
   </div>
